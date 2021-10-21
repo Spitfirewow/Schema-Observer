@@ -1,0 +1,42 @@
+<template>
+    <template if:true={sObjectDescription.data}>
+        <div class="slds-box">
+            <lightning-layout>
+                <template if:true={sObjectDescription.data.iconPath}>
+                    <lightning-layout-item flexibility="auto" padding="around-small">                
+                        <lightning-icon icon-name={sObjectDescription.data.iconPath} size="small"></lightning-icon>                
+                    </lightning-layout-item>
+                </template>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    Label: {sObjectDescription.data.label}
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    API Name: {sObjectDescription.data.apiName}
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    Key Prefix: {sObjectDescription.data.keyPrefix}
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    is Accessible: {sObjectDescription.data.isAccessible}
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    is Queryable: {sObjectDescription.data.isQueryable}
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    is Custom: {sObjectDescription.data.isCustom}
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    is Updatable: {sObjectDescription.data.isUpdatable}
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <div class="slds-p-around_xxx-small" style="height: 300px;">
+            <lightning-datatable
+                hide-checkbox-column
+                key-field="name"
+                data={sObjectDescription.data.fieldDescribeList}
+                columns={columns}>
+            </lightning-datatable>
+        </div>
+    </template>
+</template>
